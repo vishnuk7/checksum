@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 import FeatherIcon from 'feather-icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import './styles/main.css';
@@ -27,28 +27,7 @@ function App() {
 
 	const { addToast } = useToasts();
 
-	const recvOnHandleClick = (e) => {
-		const name = e.target.name;
-		const data = e.target.value;
-
-		if (isNaN(parseInt(data))) {
-			addToast('Please enter number 🙏', {
-				appearance: 'error',
-				autoDismissTimeout: 4000,
-				autoDismiss: true,
-			});
-			return;
-		}
-
-		if (data !== '') {
-			if (name === 'reinput-1') {
-				console.log('hello');
-			}
-		}
-	};
-
 	const onHandleClick = (e) => {
-		let number = {};
 		const name = e.target.name;
 		let data = e.target.value;
 		const num = data;
@@ -112,10 +91,12 @@ function App() {
 		setRecvByte2(byte2);
 		setRecvByte3(byte3);
 		setRecvByte4(byte4);
+		// eslint-disable-next-line
 	}, [checksum]);
 
 	useEffect(() => {
 		validate();
+		// eslint-disable-next-line
 	}, [recvByte1, recvByte2, recvByte3, recvByte4]);
 
 	const findChecksum = () => {

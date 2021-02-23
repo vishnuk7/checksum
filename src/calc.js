@@ -3,7 +3,6 @@
 
 export const calc = (value) => {
 	let sum = 0;
-	let complementNumber = 0;
 	for (let i = 0; i < 4; i++) {
 		sum += parseInt(value[i], 2);
 	}
